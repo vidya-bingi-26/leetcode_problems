@@ -1,0 +1,29 @@
+//solution to calculate sum of all left leafs in a binary tree
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        if (root == nullptr)
+        return 0;
+
+    queue<TreeNode*> q;
+    q.push(root);
+int sum=0;
+    while (!q.empty()) {
+        TreeNode* current = q.front();
+        q.pop();
+        cout << current->val << " ";
+
+        if (current->left != nullptr)
+            q.push(current->left);
+            if(current->left->left==nullptr && current->left->right==nullptr){
+                sum+=current->left->val;
+            }
+        if (current->right != nullptr)
+            q.push(current->right);
+            
+
+          
+    }
+    return sum;
+    }
+};
